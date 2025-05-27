@@ -44,14 +44,14 @@ public class App {
     public void exe() {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.println("+--------------- MENU----------------+");
-        System.out.println("1 – Cadastrar Produto Estadual");
-        System.out.println("2 – Cadastrar Produto Nacional");
-        System.out.println("3 – Cadastrar Produto Importado");
-        System.out.println("4 – Exibir Produtos Estaduais");
-        System.out.println("5 – Exibir Produtos Nacionais");
-        System.out.println("6 – Exibir Produtos Importados");
-        System.out.println("7 – Exibir Todos Produtos");
-        System.out.println("9 – SAIR");
+        System.out.println("1 - Cadastrar Produto Estadual");
+        System.out.println("2 - Cadastrar Produto Nacional");
+        System.out.println("3 - Cadastrar Produto Importado");
+        System.out.println("4 - Exibir Produtos Estaduais");
+        System.out.println("5 - Exibir Produtos Nacionais");
+        System.out.println("6 - Exibir Produtos Importados");
+        System.out.println("7 - Exibir Todos Produtos");
+        System.out.println("9 - SAIR");
         int opcao = 0;
         System.out.print("Escolha uma opção: ");
         opcao = scanner.nextInt();
