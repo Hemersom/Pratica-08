@@ -27,8 +27,8 @@ class Estadual extends Produto {
                 ",valor: valor do produto, Imposto: Imposto do produto}\n" +
                 "Estadual{" +
                 "desc='" + desc + '\'' +
-                ", valor=" + valor +
-                ", imposto=" + imposto +
+                ", valor: R$" + valor +
+                ", imposto:" + imposto*100 + "%"+
                 ", Valor Total=" + (getValorTotal()) +
                 '}');
     }

@@ -31,8 +31,8 @@ public class Produto {
                 ",valor: valor do produto}\n" +
                 "Produto{" +
                 "desc='" + desc + '\'' +
-                ", valor=" + valor +
-                ", Valor Total=" + (getValorTotal()) +
+                ", valor: R$" + valor +
+                ", Valor Total: R$" + (getValorTotal()) +
                 '}');
     }
 
