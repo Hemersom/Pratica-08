@@ -1,6 +1,4 @@
-
 import java.util.Scanner;
-
 public class App {
     final int max = 100;
     Nacional[] nacional = new Nacional[max];
@@ -9,59 +7,59 @@ public class App {
     int contador_importado = 0;
     Estadual[] estadual = new Estadual[max];
     int contador_estadual = 0;
-    
-    /* MENU
-
-1 – Cadastrar Produto Estadual
-
-2 – Cadastrar Produto Nacional
-
-3 – Cadastrar Produto Importado
-
-4 – Exibir Produtos Estaduais
-
-5 – Exibir Produtos Nacionais
-
-6 – Exibir Produtos Importados
-
-7 – Exibir Todos Produtos
-
-9 – SAIR
-*/  
     public void CadastrarProdutoEstadual(Scanner scanner) {
         String desc;
-        System.out.print("Digite a descrição do produto estadual: ");
-        desc = scanner.nextLine();
-        scanner.nextLine();
-        double valor;
-        System.out.print("Digite o valor do produto estadual: ");
-        valor = scanner.nextDouble();
-        Estadual produto = new Estadual(desc, valor);
         if (contador_estadual < max) {
+            System.out.print("Digite a descrição do produto estadual: ");
+            desc = scanner.nextLine();
+            System.out.print("Digite o valor do produto estadual: ");
+            double valor = scanner.nextDouble();
+            scanner.nextLine();
+            Estadual produto = new Estadual(desc, valor);
             estadual[contador_estadual++] = produto;
             System.out.println("Produto Estadual cadastrado com sucesso!");
         } else {
             System.out.println("Limite de produtos estaduais atingido.");
         }
+
     }
-    public void CadastrarProdutoNacional(String desc, double valor) {
-        Nacional produto = new Nacional(desc, valor);
+    public void CadastrarProdutoNacional(Scanner scanner) {
         if (contador_nacional < max) {
+            System.out.print("Digite a descrição do produto nacional: ");
+            String desc = scanner.nextLine();
+
+            System.out.print("Digite o valor do produto nacional: ");
+            double valor = scanner.nextDouble();
+            scanner.nextLine();
+            Nacional produto = new Nacional(desc, valor);
             nacional[contador_nacional++] = produto;
             System.out.println("Produto Nacional cadastrado com sucesso!");
         } else {
             System.out.println("Limite de produtos nacionais atingido.");
         }
     }
-    public void CadastrarProdutoImportado(String desc, double valor) {
-        Importado produto = new Importado(desc, valor);
+
+    public void CadastrarProdutoImportado(Scanner scanner) {
+        String desc;
+        double valor;
         if (contador_importado < max) {
+            System.out.print("Digite a descrição do produto importado: ");
+            desc = scanner.nextLine();
+            System.out.print("Digite o valor do produto importado: ");
+            valor = scanner.nextDouble();
+            scanner.nextLine();
+            if (valor <= 0) {
+                System.out.println("Valor inválido. O valor deve ser maior que zero.");
+                return;
+            }
+            Importado produto = new Importado(desc, valor);
             importado[contador_importado++] = produto;
             System.out.println("Produto Importado cadastrado com sucesso!");
         } else {
             System.out.println("Limite de produtos importados atingido.");
         }
     }
+
     public void ExibirProdutosEstaduais() {
         if (contador_estadual == 0) {
             System.out.println("Nenhum produto estadual cadastrado.");
@@ -72,6 +70,7 @@ public class App {
             }
         }
     }
+
     public void ExibirProdutosNacionais() {
         if (contador_nacional == 0) {
             System.out.println("Nenhum produto nacional cadastrado.");
@@ -82,6 +81,7 @@ public class App {
             }
         }
     }
+
     public void ExibirProdutosImportados() {
         if (contador_importado == 0) {
             System.out.println("Nenhum produto importado cadastrado.");
@@ -92,13 +92,31 @@ public class App {
             }
         }
     }
+
     public void ExibirTodosProdutos() {
         ExibirProdutosEstaduais();
         ExibirProdutosNacionais();
         ExibirProdutosImportados();
     }
-     
+    public void pause(Scanner scanner) {
+        System.out.println("Pressione ENTER para continuar...");
+        scanner.nextLine();
+    }
+    public void limparTela() {
+        try {
+            if (System.getProperty("os.name").toLowerCase().contains("win")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao limpar a tela: " + e.getMessage());
+        }
+    }
     public void exe() {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        pause(scanner);
+        limparTela();
         System.out.println("+--------------- MENU----------------+");
         System.out.println("1 – Cadastrar Produto Estadual");
         System.out.println("2 – Cadastrar Produto Nacional");
@@ -109,31 +127,30 @@ public class App {
         System.out.println("7 – Exibir Todos Produtos");
         System.out.println("9 – SAIR");
         int opcao = 0;
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.print("Escolha uma opção: ");
         opcao = scanner.nextInt();
+        scanner.nextLine(); 
         switch (opcao) {
             case 1:
-                
-                CadastrarProdutoEstadual(desc,valor);
+                CadastrarProdutoEstadual(scanner);
                 break;
             case 2:
-                // Cadastrar Produto Nacional
+                CadastrarProdutoNacional(scanner);
                 break;
             case 3:
-                // Cadastrar Produto Importado
+                CadastrarProdutoImportado(scanner);
                 break;
             case 4:
-                // Exibir Produtos Estaduais
+                ExibirProdutosEstaduais();
                 break;
             case 5:
-                // Exibir Produtos Nacionais
+                ExibirProdutosNacionais();
                 break;
             case 6:
-                // Exibir Produtos Importados
+                ExibirProdutosImportados();
                 break;
             case 7:
-                // Exibir Todos Produtos
+                ExibirTodosProdutos();
                 break;
             case 9:
                 System.out.println("Saindo...");
@@ -145,6 +162,9 @@ public class App {
         }
     }
     public static void main(String[] args) {
-        
-    }  
+        App app = new App();
+        while (true) { 
+            app.exe();
+        }
+    }
 }

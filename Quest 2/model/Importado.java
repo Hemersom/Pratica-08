@@ -19,6 +19,7 @@ public class Importado extends Nacional {
                 ", imposto=" + imposto +
                 ", taxa=" + taxa +
                 ", taxaImportacao=" + taxaImportacao +
+                ", Valor Total=" + (valor + valor * imposto + valor * taxa + valor * taxaImportacao) +
                 '}';
     }
 }

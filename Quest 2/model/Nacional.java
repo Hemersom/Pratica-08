@@ -18,6 +18,7 @@ public class Nacional extends Estadual {
                 ", valor=" + valor +
                 ", imposto=" + imposto +
                 ", taxa=" + taxa +
+                "Valor Total=" + (valor + valor * imposto + valor * taxa) +
                 '}';
     }
     

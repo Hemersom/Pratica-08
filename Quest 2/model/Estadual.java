@@ -5,7 +5,7 @@ class Estadual {
     
     public Estadual(String desc, double valor) {
         this.desc = desc;
-        this.valor = valor;
+        this.valor = valor < 0 ? 0.0 : valor; 
         this.imposto = 0.10;
     }
 
@@ -25,7 +25,7 @@ class Estadual {
         return valor;
     }
     public void setValor(double valor) {
-        this.valor = valor;
+        this.valor = valor < 0 ? 0.0 : valor;
     }
     public double getImposto() {
         return imposto;
@@ -37,6 +37,7 @@ class Estadual {
                 "desc='" + desc + '\'' +
                 ", valor=" + valor +
                 ", imposto=" + imposto +
+                ", Valor Total=" + (valor + valor * imposto) +
                 '}';
     }
 
