@@ -1,18 +1,11 @@
-class Estadual {
-    protected String desc;
-    protected double valor;
-    protected double imposto;
-    
+class Estadual extends Produto {
+    protected double imposto = 0.10f; 
     public Estadual(String desc, double valor) {
-        this.desc = desc;
-        this.valor = valor < 0 ? 0.0 : valor; 
-        this.imposto = 0.10;
+        super(desc, valor);
     }
 
     public Estadual(){
-        this.desc = "";
-        this.valor = 0.0;
-        this.imposto = 0.10f;
+        super();
     }
 
     public String getDesc() {
@@ -34,10 +27,10 @@ class Estadual {
     @Override
     public String toString() {
         return "Estadual{" +
-                "desc='" + desc + '\'' +
-                ", valor=" + valor +
-                ", imposto=" + imposto +
-                ", Valor Total=" + (valor + valor * imposto) +
+                "desc='" + this.desc + '\'' +
+                ", valor=" + this.valor +
+                ", imposto=" + this.imposto +
+                ", Valor Total=" + (this.valor + this.valor * this.imposto) +
                 '}';
     }
 

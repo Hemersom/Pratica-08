@@ -1,4 +1,6 @@
-public class Importado extends Nacional {
+public class Importado extends Produto {
+    protected double imposto = 0.10f; 
+    protected double taxa;
     protected double taxaImportacao;
     public Importado(String desc, double valor) {
         super(desc, valor);
