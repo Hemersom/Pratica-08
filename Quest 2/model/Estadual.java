@@ -8,30 +8,29 @@ class Estadual extends Produto {
         super();
     }
 
-    public String getDesc() {
-        return desc;
-    }
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-    public double getValor() {
-        return valor;
-    }
-    public void setValor(double valor) {
-        this.valor = valor < 0 ? 0.0 : valor;
-    }
     public double getImposto() {
         return imposto;
     }
+    @Override
+    public double getValorTotal() {
+        double vl = this.valor + this.valor * this.imposto;
+        vl = vl*100;
+        vl = Math.round(vl);
+        vl = vl/100;
+        return vl;
+    }
 
     @Override
-    public String toString() {
-        return "Estadual{" +
-                "desc='" + this.desc + '\'' +
-                ", valor=" + this.valor +
-                ", imposto=" + this.imposto +
-                ", Valor Total=" + (this.valor + this.valor * this.imposto) +
-                '}';
+    public String relatorio() {
+        return String.format("Atributos {"+
+                "descrição: nome do produto"+
+                ",valor: valor do produto, Imposto: Imposto do produto}\n" +
+                "Estadual{" +
+                "desc='" + desc + '\'' +
+                ", valor=" + valor +
+                ", imposto=" + imposto +
+                ", Valor Total=" + (getValorTotal()) +
+                '}');
     }
 
 }

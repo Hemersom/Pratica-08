@@ -14,14 +14,25 @@ public class Importado extends Produto {
         return taxaImportacao;
     }
     @Override
+    public double getValorTotal() {
+        double vl = this.valor + (this.valor * this.imposto) + (this.valor * this.taxa) + (this.valor * this.taxaImportacao);
+        vl = vl * 100;
+        vl = Math.round(vl);
+        vl = vl / 100;
+        return vl;
+    }
+    @Override
     public String toString() {
-        return "Importado{" +
+        return String.format("Atributos {" +
+                "descrição: nome do produto" +
+                ",valor: valor do produto, Imposto: Imposto do produto, Taxa: Taxa do produto, Taxa de Importação: Taxa de Importação do produto}\n" +
+                "Importado{" +
                 "desc='" + desc + '\'' +
                 ", valor=" + valor +
                 ", imposto=" + imposto +
                 ", taxa=" + taxa +
                 ", taxaImportacao=" + taxaImportacao +
-                ", Valor Total=" + (valor + valor * imposto + valor * taxa + valor * taxaImportacao) +
-                '}';
+                ", Valor Total=" + (getValorTotal()) +
+                '}');
     }
 }

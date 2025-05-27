@@ -2,7 +2,6 @@ public class Produto {
     protected String desc;
     protected double valor;
     
-
     public Produto(String desc, double valor) {
         this.desc = desc;
         this.valor = valor < 0 ? 0.0 : valor; 
@@ -23,13 +22,18 @@ public class Produto {
     public void setValor(double valor) {
         this.valor = valor < 0 ? 0.0 : valor;
     }
-    @Override
-    public String toString() {
-        return "Produto{" +
+    public double getValorTotal() {
+        return valor;
+    }
+    public String relatorio() {
+        return  String.format("Atributos {"+
+                "descrição: nome do produto"+
+                ",valor: valor do produto}\n" +
+                "Produto{" +
                 "desc='" + desc + '\'' +
                 ", valor=" + valor +
-                ", Valor Total=" + (valor) +
-                '}';
+                ", Valor Total=" + (getValorTotal()) +
+                '}');
     }
 
 }

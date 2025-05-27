@@ -37,7 +37,7 @@ public class App {
         } else {
             System.out.println("Produtos " + tipo + ":");
             for (int i = 0; i < contador; i++) {
-                System.out.println(produtos[i].toString());
+                System.out.println(produtos[i].relatorio());
             }
         }
     }

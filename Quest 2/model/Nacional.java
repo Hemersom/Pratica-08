@@ -13,14 +13,25 @@ public class Nacional extends Produto {
         return taxa;
     }
     @Override
-    public String toString() {
-        return "Nacional{" +
+    public double getValorTotal() {
+        double vl = this.valor + (this.valor * this.imposto) + this.valor * this.taxa;
+        vl = vl * 100;
+        vl = Math.round(vl);
+        vl = vl / 100;
+        return vl;
+    }
+    @Override
+    public String relatorio() {
+        return String.format("Atributos {"+
+                "descrição: nome do produto"+
+                ",valor: valor do produto, Imposto: Imposto do produto, Taxa: Taxa do produto}\n" +
+                "Nacional{" +
                 "desc='" + desc + '\'' +
                 ", valor=" + valor +
                 ", imposto=" + imposto +
                 ", taxa=" + taxa +
-                "Valor Total=" + (valor + valor * imposto + valor * taxa) +
-                '}';
+                ", Valor Total=" + (getValorTotal()) +
+                '}');
     }
     
 }
