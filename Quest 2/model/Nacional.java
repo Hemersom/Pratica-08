@@ -25,13 +25,14 @@ public class Nacional extends Produto {
         return String.format("Atributos {"+
                 "descrição: nome do produto"+
                 ",valor: valor do produto, Imposto: Imposto do produto, Taxa: Taxa do produto}\n" +
-                "Nacional{" +
-                "desc='" + desc + '\'' +
-                ", valor=" + valor +
-                ", imposto=" + imposto +
-                ", taxa=" + taxa +
-                ", Valor Total=" + (getValorTotal()) +
-                '}');
+                "Nacional{ Valor Total = R$ %.2f"+
+                ", desc = %s, "+ 
+                "Valor = R$ %.2f"+
+                ", imposto = %.2f"+
+                ", taxa = %.2f"+
+                "Valor Total = R$ %.2f"+ 
+                '}' 
+                , getValorTotal(), desc, valor, imposto, taxa, getValorTotal());
     }
     
 }

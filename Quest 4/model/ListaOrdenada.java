@@ -22,15 +22,19 @@ public class ListaOrdenada extends Lista {
         }
     }
     @Override
+    public void informarTamanho() {
+        System.out.println("Tamanho atual da lista ordenada: " + tamanho);
+    }
+    @Override
     public void imprime() {
         if (tamanho == 0) {
             System.out.println("Lista vazia.");
             return;
         }
         for (int i = 0; i < tamanho; i++) {
-            System.out.print(lista[i] + " ");
+            System.out.print("| "+lista[i] + " |-> ");
         }
-        System.out.println();
+        System.out.println("FIM\n");
     }
 
     @Override
@@ -41,7 +45,7 @@ public class ListaOrdenada extends Lista {
         }
         return lista[posicao];
     }
-    
+
     @Override
     public void remove(int posicao) {
         if (posicao < 0 || posicao >= tamanho) {

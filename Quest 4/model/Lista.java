@@ -1,5 +1,3 @@
-
-
 public class Lista {
     protected int capacidade;
     protected int tamanho;
@@ -53,7 +51,9 @@ public class Lista {
         }
         tamanho--;
     }
-
+    public void informarTamanho() {
+        System.out.println("Tamanho atual da lista: " + tamanho);
+    }
     public void imprime() {
         if (tamanho == 0) {
             System.out.println("Lista vazia.");

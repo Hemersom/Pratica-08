@@ -22,15 +22,21 @@ class Estadual extends Produto {
 
     @Override
     public String relatorio() {
-        return String.format("Atributos {"+
-                "descrição: nome do produto"+
-                ",valor: valor do produto, Imposto: Imposto do produto}\n" +
-                "Estadual{" +
-                "desc='" + desc + '\'' +
-                ", valor: R$" + valor +
-                ", imposto:" + imposto*100 + "%"+
-                ", Valor Total=" + (getValorTotal()) +
-                '}');
-    }
+    return String.format(
+        "Atributos {" +
+        "descrição: nome do produto" +
+        ", valor: preço base do produto, Imposto: imposto do produto}\n" +
+        "Estadual { desc = '%s'" +
+        ", valor: R$ %.2f" +
+        ", imposto: %.2f " +
+        ", Valor Total = R$ %.2f" +
+        " }",
+        getDesc(),
+        getValor(),
+        getImposto(),
+        getValorTotal()
+    );
+}
+
 
 }

@@ -12,8 +12,8 @@ class Peca {
 
     public Peca(String nome, double custo, double lucro) {
         this.nome = nome;
-        this.custo = custo;
-        this.lucro = lucro;
+        this.custo = custo < 0 ? 0.0 : custo;
+        this.lucro = lucro < 0 ? 0.0 : lucro;
     }
 
     public void setNome(String nome) {
@@ -25,7 +25,7 @@ class Peca {
     }
 
     public void setCusto(double custo) {
-        this.custo = custo;
+        this.custo = custo < 0 ? 0.0 : custo;
     }
 
     public double getCusto() {
@@ -33,7 +33,7 @@ class Peca {
     }
 
     public void setLucro(double lucro) {
-        this.lucro = lucro;
+        this.lucro = lucro < 0 ? 0.0 : lucro;
     }
 
     public double getLucro() {

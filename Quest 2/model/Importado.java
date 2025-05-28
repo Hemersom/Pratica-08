@@ -1,6 +1,6 @@
 public class Importado extends Produto {
     protected double imposto = 0.10f; 
-    protected double taxa;
+    protected double taxa = 0.05f;
     protected double taxaImportacao;
     public Importado(String desc, double valor) {
         super(desc, valor);
@@ -22,17 +22,23 @@ public class Importado extends Produto {
         return vl;
     }
     @Override
-    public String toString() {
+    public String relatorio() {
         return String.format("Atributos {" +
                 "descrição: nome do produto" +
                 ",valor: valor do produto, Imposto: Imposto do produto, Taxa: Taxa do produto, Taxa de Importação: Taxa de Importação do produto}\n" +
                 "Importado{" +
-                "desc='" + desc + '\'' +
-                ", valor=" + valor +
-                ", imposto=" + imposto +
-                ", taxa=" + taxa +
-                ", taxaImportacao=" + taxaImportacao +
-                ", Valor Total=" + (getValorTotal()) +
-                '}');
+                "desc = '%s'" +
+                ", valor: R$ %.2f" +
+                ", imposto: %.2f" +
+                ", taxa: %.2f" +
+                ", taxaImportacao: %.2f" +
+                ", Valor Total = R$ %.2f" +
+                '}',
+                getDesc(),
+                getValor(),
+                imposto,
+                taxa,
+                taxaImportacao,
+                getValorTotal());
     }
 }

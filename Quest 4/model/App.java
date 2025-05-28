@@ -4,13 +4,14 @@ import java.util.Scanner;
 public class App {
 
     public static void exe(Scanner scanner, Lista lista, ListaOrdenada listaOrdenada) {
-        int opcao =-1;
+        int opcao = -1;
         do {
             System.out.println("+---------- Menu ----------+");
             System.out.println("1 - Inserir elemento");
             System.out.println("2 - Buscar elemento");
             System.out.println("3 - Remover elemento");
             System.out.println("4 - Imprimir lista");
+            System.out.println("5 - Informar tamanho da lista");
             System.out.println("0 - Sair");
             System.out.print("Escolha >> ");
             opcao = scanner.nextInt();
@@ -76,6 +77,13 @@ public class App {
                         listaOrdenada.imprime();
                     }
                     break;
+                case 5:
+                    if (opcao2 == 1) {
+                        lista.informarTamanho();
+                    } else if (opcao2 == 2) {
+                        listaOrdenada.informarTamanho();
+                    }
+                    break;
                 case 0:
                     System.out.println("Saindo...");
                     scanner.close();
@@ -86,7 +94,6 @@ public class App {
             }
         } while (opcao !=0);
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite a capacidade das listas:");
@@ -102,5 +109,4 @@ public class App {
         ListaOrdenada listaOrdenada = new ListaOrdenada(capacidade);
         exe(scanner, lista, listaOrdenada);
     }
-
 }
