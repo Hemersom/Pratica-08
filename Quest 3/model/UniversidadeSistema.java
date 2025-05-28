@@ -1,7 +1,7 @@
 import java.util.*;
 public class UniversidadeSistema {
 
-    static Departamento[] departamentos = new Departamento[10];  // Máximo 10 departamentos
+    static Departamento[] departamentos = new Departamento[10];  
     static int qtdDepartamentos = 0;
 
     static Scanner sc = new Scanner(System.in);
